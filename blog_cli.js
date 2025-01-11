@@ -83,7 +83,7 @@ function deletePost() {
 }
 
 function viewBlogPosts() { //will display the link to my blog on medium
-    console.log('Visit my blog posts on Medium: https://medium.com/@nwakalokenechukwu/');
+    console.log('Visit my blog posts on Medium: https://medium.com/@nwakalokenechukwu/javascript-variables-do-they-vary-or-are-they-all-the-same-ec7102d7969b');
 }
 
 function main() {
