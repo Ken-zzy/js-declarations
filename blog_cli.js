@@ -1,8 +1,21 @@
 const prompt = require('prompt-sync')();
 const fs = require('fs');
 
-// Sample data (replace with your actual data storage mechanism)
 let posts = [];
+createPosts()
+
+function createPosts() {
+    try {
+        // Check if a posts json file already exists and create one if it doesn't
+        if (!fs.existsSync('posts.json')) {
+            console.log('Creating a post collection.');
+            fs.writeFileSync('posts.json', JSON.stringify([], null, 2));
+            return;
+        }
+    } catch (err) {
+        console.error('Error initializing posts:', err);
+    }
+}
 
 function loadPosts() {
     try {
@@ -10,7 +23,7 @@ function loadPosts() {
         posts = JSON.parse(data);
     } catch (err) {
         console.error("Error loading posts:", err);
-        posts = []; // Initialize with an empty array if file doesn't exist
+        posts = [];
     }
 }
 
@@ -31,13 +44,19 @@ function createPost() {
 }
 
 function listPosts() {
-    console.log('List of posts:');
+    loadPosts()
+
+    if (posts.length === 0) {
+        console.log('No posts found.');
+        return;
+    }
+
     posts.forEach((post, index) => {
-        console.log(`${index + 1}. ${post.title}`);
+        console.log(`${index + 1}. ${post.title}: ${post.content}`);
     });
 }
 
-function editPost() {
+function editPost() { // allows user to overwrite a post
     listPosts();
     const index = parseInt(prompt('Enter the index of the post to edit: ')) - 1;
     if (index >= 0 && index < posts.length) {
@@ -63,7 +82,7 @@ function deletePost() {
     }
 }
 
-function viewBlogPosts() {
+function viewBlogPosts() { //will display the link to my blog on medium
     console.log('Visit my blog posts on Medium: https://medium.com/@nwakalokenechukwu/');
 }
 
