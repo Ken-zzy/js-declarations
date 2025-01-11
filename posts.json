@@ -1,22 +1,15 @@
-[
-  {
-    "title": "My First Post",
-    "content": "This is the content of my first post."
-  },
-  {
-    "title": "Another Post",
-    "content": "This is the content of another post."
-  },
-  {
-    "title": "Blogg",
-    "content": "hahahaha"
-  },
-  {
-    "title": "Welcome to JS",
-    "content": "Js is a lightweight, versatile programming language"
-  },
-  {
-    "title": "Programming",
-    "content": "You can be a programmer if you try"
-  }
+[{
+        "title": "My First Post",
+        "content": "This is the content of my first post."
+    },
+    {
+        "title": "Another Post",
+        "content": "This is the content of another post."
+    },
+    {
+        "title": "Blogg",
+        "content": "hahahaha"
+    }
+
+
 ]
